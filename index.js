@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // URL of the films data
     const url = 'http://localhost:3000/films';
   
+    // Fetch JSON data from the provided URL
     async function fetchData(url) {
       try {
         const response = await fetch(url);
@@ -13,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   
+    // Fetch and show results based on the URL
     async function fetchAndShowResults(url) {
       const data = await fetchData(url);
       if (data && data.length) {
@@ -20,25 +23,29 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   
+    // Display movie results
     function showResults(movies) {
       const cardContainer = document.querySelector('.card-container');
       cardContainer.innerHTML = '';
   
-      const rowSize = 4; // Number of cards per row
+      const rowSize = 5; // Number of cards per row
       let currentRow;
   
       movies.forEach((movie, index) => {
         const { id, title, runtime, capacity, showtime, ticketsSold, Description, poster } = movie;
   
+        // Check if a new row needs to be created
         if (index % rowSize === 0) {
           currentRow = document.createElement('div');
           currentRow.classList.add('row');
           cardContainer.appendChild(currentRow);
         }
   
+        // Create a new card element
         const cardElement = document.createElement('div');
         cardElement.classList.add('card');
   
+        // Construct the card content
         const cardContent = `
           <h2 class="card-title">${title || ''}</h2>
           <p class="card-runtime">Runtime: ${runtime || ''} minutes</p>
@@ -52,13 +59,18 @@ document.addEventListener('DOMContentLoaded', () => {
           <button class="buy-ticket-btn" data-movie-id="${id}">Buy Ticket</button>
         `;
   
+        // Set the card content
         cardElement.innerHTML = cardContent;
+  
+        // Append the card to the current row
         currentRow.appendChild(cardElement);
       });
   
+      // Add event listeners to the buy ticket buttons
       addBuyTicketListeners();
     }
   
+    // Add event listeners to the buy ticket buttons
     function addBuyTicketListeners() {
       const buyTicketButtons = document.querySelectorAll('.buy-ticket-btn');
       buyTicketButtons.forEach(button => {
@@ -66,12 +78,14 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   
+    // Event handler for buying a ticket
     function handleBuyTicket(event) {
       const movieId = event.target.dataset.movieId;
       // Perform the necessary action to buy a ticket for the movie with the given movieId
       console.log(`Buying ticket for movie with ID: ${movieId}`);
     }
   
+    // Initialize the page
     async function init() {
       await fetchAndShowResults(url);
     }

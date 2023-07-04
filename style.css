@@ -1,4 +1,4 @@
-/*Importing 'Poppins Font'*/
+/*Importing 'Poppins Font' from google fonts*/
   @import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap');
 
 *{
@@ -28,6 +28,7 @@ body{
     margin: 15px 0 30px 0;
 }
 
+/*Search-box form styling*/
 .search-box form{
     display: flex;
     max-width: 400px;
@@ -37,6 +38,7 @@ body{
     background-color: rgba(255, 255, 255, 0.9);
 }
 
+/*Search-box input animation styles*/
 .search-box input{
     width: 100%;
     max-width: 400px;
@@ -46,6 +48,7 @@ body{
     background-color: rgba(255, 255, 255, 0.9) ;
 }
 
+/*Stylings for both search-box and search button animation*/
 .search-box .search-btn{
     width:120px;
     background-color: blue;
@@ -56,16 +59,21 @@ body{
     border-radius: 0 0.4rem 0.4rem 0;
     transition: all 0.5s ease;
 }
+
+/*Styling for the animation*/
 search-box .search-btn:hover{
     background-color: #0091ea;
     border: 1px solid #fff;
 }
+
+/*Stylings for the card container*/
 .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
+/*Arrangement of cards on the page */
 .row {
     width: 100%;
     display: flex;
@@ -74,6 +82,7 @@ search-box .search-btn:hover{
     margin-bottom: 20px;
 }
 
+/*stylings for the card*/
 .card {
     width: 200px;
     background-color: rgba(255, 255, 255, 0.9);
