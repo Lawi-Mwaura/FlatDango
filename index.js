@@ -1,4 +1,7 @@
+    //Initialization of the DOM
 document.addEventListener('DOMContentLoaded', () => {
+
+
     // URL of the films data
     const url = 'http://localhost:3000/films';
   
@@ -69,15 +72,25 @@ document.addEventListener('DOMContentLoaded', () => {
       // Add event listeners to the buy ticket buttons
       addBuyTicketListeners();
     }
-  
-    // Add event listeners to the buy ticket buttons
-    function addBuyTicketListeners() {
-      const buyTicketButtons = document.querySelectorAll('.buy-ticket-btn');
-      buyTicketButtons.forEach(button => {
-        button.addEventListener('click', handleBuyTicket);
-      });
-    }
-  
+    //Initializing the submit event listener
+    const form = document.querySelector('#search-form');
+    form.addEventListener('submit', handleSearch);
+    
+    // Implementing a search function for searching available movies
+        async function handleSearch(event) {
+        event.preventDefault(); // Prevent the form from submitting and reloading the page
+        const searchInput = document.querySelector('#search-input');
+        const searchTerm = searchInput.value.trim(); // Get the search term from the input field
+      
+        if (searchTerm) {
+          const searchUrl = `http://localhost:3000/films?title_like=${searchTerm}`;
+          await fetchAndShowResults(searchUrl);
+        } else {
+          // If search term is empty, show all results
+          await fetchAndShowResults(url);
+        }
+      }
+    
     // Event handler for buying a ticket
     function handleBuyTicket(event) {
       const movieId = event.target.dataset.movieId;
