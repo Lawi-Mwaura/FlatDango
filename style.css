@@ -1,24 +1,25 @@
-/*Importing 'Poppins Font' from google fonts*/
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap');
+/* Importing 'Poppins Font' from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap');
 
-*{
-    margin:0;
-    outline: none;
-    font-family: 'Poppins', sans-serif;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-a {
-   color: #fff;
-   text-decoration: none;
-}
-
-body{
-    color:#fff;
+body {
+    color: #fff;
     background-color: #212121;
     padding: 1.5rem;
 }
-.search-box{
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.search-box {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -28,8 +29,8 @@ body{
     margin: 15px 0 30px 0;
 }
 
-/*Search-box form styling*/
-.search-box form{
+/* Search-box form styling */
+.search-box form {
     display: flex;
     max-width: 400px;
     padding: 8px;
@@ -38,19 +39,18 @@ body{
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-/*Search-box input animation styles*/
-.search-box input{
+/* Search-box input styling */
+.search-box input {
     width: 100%;
-    max-width: 400px;
     padding: 8px;
     border-radius: 0.4rem 0 0 0.4rem;
     border: none;
-    background-color: rgba(255, 255, 255, 0.9) ;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
-/*Stylings for both search-box and search button animation*/
-.search-box .search-btn{
-    width:120px;
+/* Search button styling */
+.search-box .search-btn {
+    width: 120px;
     background-color: blue;
     color: #fff;
     cursor: pointer;
@@ -60,20 +60,21 @@ body{
     transition: all 0.5s ease;
 }
 
-/*Styling for the animation*/
-search-box .search-btn:hover{
+/* Search button hover effect */
+.search-box .search-btn:hover {
     background-color: #0091ea;
     border: 1px solid #fff;
 }
 
-/*Stylings for the card container*/
+/* Card container styling */
 .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 20px;
 }
 
-/*Arrangement of cards on the page */
+/* Card row styling */
 .row {
     width: 100%;
     display: flex;
@@ -82,16 +83,53 @@ search-box .search-btn:hover{
     margin-bottom: 20px;
 }
 
-/*stylings for the card*/
+/* Card styling */
 .card {
     width: 200px;
     background-color: rgba(255, 255, 255, 0.9);
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
+
+.card:hover {
+    transform: scale(1.05);
+}
+
 .card img {
-    width: calc(25%-10px); /*It adjusts the width we can fit 4 cards per row */
+    width: 100%;
     height: auto;
     border-radius: 8px;
+}
+
+/* Card content styling */
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.card-runtime,
+.card-capacity,
+.card-showtime,
+.card-tickets-sold,
+.card-description {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.card .buy-ticket-btn {
+    width: 100%;
+    background-color: blue;
+    color: #fff;
+    cursor: pointer;
+    padding: 6px 0;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.card .buy-ticket-btn:hover {
+    background-color: #0091ea;
+    border: 1px solid #fff;
 }
