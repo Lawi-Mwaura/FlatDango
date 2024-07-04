@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const cardContainer = document.querySelector('.card-container');
       cardContainer.innerHTML = '';
 
-      const rowSize = 5; // Number of cards per row
+      const rowSize = 4; // Number of cards per row
       let currentRow;
 
       movies.forEach((movie, index) => {
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <p class="card-tickets-sold">Tickets Sold: ${ticketsSold || 0}</p>
               <p class="card-description">${description || ''}</p>
               <div class="card-media">
-                  <img src="${poster || ''}" alt="Movie Poster" width="100%">
+                  <img src="${poster || ''}" alt="Movie Poster">
               </div>
               <button class="buy-ticket-btn" data-movie-id="${id}">Buy Ticket</button>
           `;
